@@ -1,0 +1,65 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity FSM is
+	port 
+	(Clk 			: in std_logic;
+	SW_0 			: in std_logic;
+	PB_0 			: in std_logic;
+	Ship_Alive	: in std_logic;
+
+	State			: out std_logic_vector(1 DOWNTO 0)
+	);
+
+end FSM;
+
+architecture behaviour of FSM is
+	
+	type STATES is (MENU, TRAINING, NORMAL, GAMEOVER);
+	SIGNAL current_state, next_state : STATES := MENU;
+begin
+	process(Clk)
+	begin
+		if (Clk'event AND Clk = '1') then
+		
+			case current_state is
+				when MENU =>
+					if (PB_0 = '0') then
+						if (SW_0 = '0') then
+							next_state <= TRAINING;
+						else 
+							next_state <= NORMAL;
+						end if;
+					else
+						next_state <= MENU;
+					end if;
+				
+					State <= "00";
+				
+				when TRAINING =>
+					if(Ship_Alive = '0') then
+						next_state <= GAMEOVER;
+					end if;
+				
+					State <= "01";
+				
+				when NORMAL =>
+					if(Ship_Alive = '0') then
+						next_state <= GAMEOVER;
+					end if;
+				
+					State <= "10";
+				
+				when GAMEOVER =>
+					if (PB_0 = '0') then
+						next_state <= MENU;
+					end if;
+				
+					State <= "11";	
+			end case;
+			
+			current_state <= next_state;
+		end if;
+	end process;
+end architecture behaviour;

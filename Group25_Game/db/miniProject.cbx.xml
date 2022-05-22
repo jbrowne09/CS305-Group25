@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="miniProject">
+		<CBX_INST_ENTRY INSTANCE_NAME="|miniProject|PLL:inst5|altpll:altpll_component" CBX_FILE_NAME="PLL_altpll.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|miniProject|background_rom:inst16|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_toc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|miniProject|char_rom:inst3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_kt91.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|miniProject|ship_rom:inst19|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_igb1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

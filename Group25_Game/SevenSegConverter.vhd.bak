@@ -1,0 +1,37 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.all;
+
+
+ENTITY NUM IS
+   PORT(Switch, Button : IN std_logic;
+        Seg3, Seg2, Seg1, Seg0 : OUT std_logic_vector(6 DOWNTO 0)
+		  );
+END NUM;
+
+architecture behavior of NUM is
+begin
+	process (Button, Switch)
+	begin
+	
+		if (Switch = '1') then
+			
+			Seg0 <= "1000000";
+			Seg3 <= "1000000";
+			
+			if (Button = '0') then
+				Seg2 <= "0010010";
+				Seg1 <= "0100100";
+			else 
+				Seg2 <= "1000000";
+				Seg1 <= "1000000";
+			end if;
+			
+		else 
+			Seg3 <= "1111111";
+			Seg2 <= "1111111";
+			Seg1 <= "1111111";
+			Seg0 <= "1111111";
+		end if;
+	end process;
+
+END behavior;

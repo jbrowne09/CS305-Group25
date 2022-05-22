@@ -1,0 +1,44 @@
+library.ieee
+use ieee.std_logic_1164.all
+use ieee.numeric_std.all
+
+
+Entity LSFR is
+	port(
+	Clk : in std_logic;
+	En	: in std_logic;
+	min : in std_logic_vector(9 downto 0);
+	max : in std_logic_vector(9 downto 0);
+	res	: out std_logic_vector(9 downto 0)
+	
+	);
+End LSFR
+
+Architecture rtl of LSFR is
+Signal reg : std_logic_vector(9 downto 0)
+Begin
+	res <= reg;
+	Process(Clk) begin
+		if rising_edge(Clk)then
+			if EN = '1' THEN
+			
+			reg(9) <= reg(0);
+			reg(8) <= reg(9) xor reg(0);
+			reg(7) <= reg(8);
+			reg(6) <= reg(7);
+			reg(5) <= reg(6);
+			reg(4) <= reg(5);
+			reg(3) <= reg(4);
+			reg(2) <= reg(3);
+			reg(1) <= reg(2);
+			reg(0) <= reg(1);
+			
+			
+			if (to_integer(unsigned(reg)) < to_integer(unsigned(min)))then
+				reg = (reg(9 downto 1) & '0');
+			elsif (to_integer(unsigned(reg)) < to_integer(unsigned(min))) then
+				reg = ('0' + reg(8 downto 0));
+			end if;
+		end if;
+	end process;
+end architecture rtl;

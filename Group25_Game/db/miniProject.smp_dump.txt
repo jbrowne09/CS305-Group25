@@ -1,0 +1,23 @@
+
+State Machine - |miniProject|FSM:inst12|current_state
+Name current_state.GAMEOVER current_state.NORMAL current_state.TRAINING current_state.MENU 
+current_state.MENU 0 0 0 0 
+current_state.TRAINING 0 0 1 1 
+current_state.NORMAL 0 1 0 1 
+current_state.GAMEOVER 1 0 0 1 
+
+State Machine - |miniProject|FSM:inst12|next_state
+Name next_state.GAMEOVER next_state.NORMAL next_state.TRAINING next_state.MENU 
+next_state.MENU 0 0 0 0 
+next_state.TRAINING 0 0 1 1 
+next_state.NORMAL 0 1 0 1 
+next_state.GAMEOVER 1 0 0 1 
+
+State Machine - |miniProject|MOUSE:inst1|mouse_state
+Name mouse_state.INPUT_PACKETS mouse_state.WAIT_CMD_ACK mouse_state.WAIT_OUTPUT_READY mouse_state.LOAD_COMMAND2 mouse_state.LOAD_COMMAND mouse_state.INHIBIT_TRANS 
+mouse_state.INHIBIT_TRANS 0 0 0 0 0 0 
+mouse_state.LOAD_COMMAND 0 0 0 0 1 1 
+mouse_state.LOAD_COMMAND2 0 0 0 1 0 1 
+mouse_state.WAIT_OUTPUT_READY 0 0 1 0 0 1 
+mouse_state.WAIT_CMD_ACK 0 1 0 0 0 1 
+mouse_state.INPUT_PACKETS 1 0 0 0 0 1 

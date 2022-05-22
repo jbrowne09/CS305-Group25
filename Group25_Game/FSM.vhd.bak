@@ -1,0 +1,60 @@
+library.ieee
+use ieee.std_logic_1164.all
+use ieee.numeric_std.all
+
+entity Game_FSM is
+	port 
+	(Clk : in std_logic;
+	SW_0 : in std_logic;
+	PB_0 :	in	std_logic;
+	Game_Over: in std_logic;
+
+	En	:	out  std_logic;
+	Draw	: out std_logic;
+	Scor_inc	:out std_logic
+	);
+
+end entity;
+
+architecture rtl of Game_FSM is
+	
+	type state_type is (s_Menu,s_Training,s_Normal,s_GameOver);
+	variable cur_state,next_state : state_type 
+		cur_state,next_state:= s_Menu;
+	
+	
+	process(Clk , PB_0)
+	begin
+		if (Clk'event AND Clk = '1') then
+		case cur_state is
+			when s_Menu =>
+				if (PB_0 = '0') then
+					if (SW_0 = '0') then
+						next_state:= s_Training;
+					else 
+						next_state:= s_Normal;
+					end if;
+				else
+					next_state:= s_Menu;
+				end if;
+			when s_Training =>
+							--implement Normal game signal logic
+				if(Game_Over = '1')then
+					next_state:= s_GameOver;
+				end if;
+			when s_Normal=>
+				--implement Normal game signal logic
+				if(Game_Over = '1')then
+					next_state:= s_GameOver;
+				end if;
+			when s_GameOver =>
+				if (PB_0 = '0') then
+					next_state:= s_Menu;
+				end if;
+		end case;
+		
+		cur_state:= next_state;
+	end process
+	
+end architecture
+

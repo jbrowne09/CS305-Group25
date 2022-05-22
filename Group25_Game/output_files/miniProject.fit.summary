@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu May 30 11:21:05 2019
+Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Full Version
+Revision Name : miniProject
+Top-level Entity Name : miniProject
+Family : Cyclone III
+Device : EP3C16F484C6
+Timing Models : Final
+Total logic elements : 2,044 / 15,408 ( 13 % )
+    Total combinational functions : 2,001 / 15,408 ( 13 % )
+    Dedicated logic registers : 590 / 15,408 ( 4 % )
+Total registers : 590
+Total pins : 47 / 347 ( 14 % )
+Total virtual pins : 0
+Total memory bits : 246,784 / 516,096 ( 48 % )
+Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )
