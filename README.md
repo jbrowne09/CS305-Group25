@@ -1,4 +1,3 @@
-# 2019-Java-Group27
 Project Authors: Jonathan Browne, Riley Fromont
 
 A 'Flappy Bird' style game developed in VHDL, intended to run on the Altera DE0 development board with the following external peripherals:
